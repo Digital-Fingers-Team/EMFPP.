@@ -1,0 +1,917 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="theme-color" content="#0a1220" />
+<title id="docTitle">الحارس — معمل أمان الصيانة التنبؤية</title>
+<style>
+:root{--bg:#08111e;--panel:#101d2d;--panel2:#142338;--line:#24354a;--muted:#93a5ba;--text:#edf4fb;--cyan:#55d6d0;--blue:#76a9ff;--green:#62d69b;--amber:#f4bd62;--red:#ff737d;--purple:#b59aff;--shadow:0 18px 48px rgba(0,0,0,.24);--radius:18px;font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Tahoma,Arial,sans-serif}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(1200px 600px at 75% -10%,rgba(70,135,190,.15),transparent 60%),var(--bg);color:var(--text);min-height:100vh}button,input,select{font:inherit}button{cursor:pointer}.app{display:grid;grid-template-columns:248px 1fr;min-height:100vh}.sidebar{background:rgba(8,17,30,.88);padding:24px 16px;display:flex;flex-direction:column;gap:28px;position:sticky;top:0;height:100vh}.brand{display:flex;align-items:center;gap:12px;padding:0 8px}.brand-mark{width:42px;height:42px;border-radius:14px;background:linear-gradient(145deg,#65e2d9,#3e88c9);display:grid;place-items:center;color:#071522;font-weight:900;font-size:22px;box-shadow:0 8px 24px rgba(85,214,208,.22)}.brand-name{font-weight:800;letter-spacing:.12em;font-size:15px}.brand-sub{color:var(--muted);font-size:11px;margin-top:3px}.nav-label{font-size:10px;letter-spacing:.12em;color:#6f8299;padding:0 12px 9px;text-transform:uppercase}.nav{display:grid;gap:6px}.nav button{border:0;background:transparent;color:#9db0c5;padding:12px;border-radius:12px;display:flex;align-items:center;gap:12px;font-size:13px;transition:.2s;width:100%}.nav button:hover{background:#14243a;color:#fff}.nav .ico{width:20px;text-align:center;font-size:16px}.side-bottom{margin-top:auto}.demo-note{padding:14px;border:1px solid #31445d;border-radius:14px;background:linear-gradient(145deg,rgba(85,214,208,.08),rgba(118,169,255,.04));font-size:11px;line-height:1.6;color:#afc0d2}.demo-note strong{display:block;color:var(--cyan);font-size:10px;margin-bottom:5px}.main{min-width:0}.topbar{height:76px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:0 34px;position:sticky;top:0;background:rgba(8,17,30,.82);backdrop-filter:blur(16px);z-index:5}.crumb{color:var(--muted);font-size:12px}.crumb b{color:var(--text);font-weight:650}.top-actions{display:flex;align-items:center;gap:10px}.pill{border:1px solid var(--line);border-radius:999px;padding:8px 11px;color:#b7c7d8;font-size:11px;display:flex;gap:7px;align-items:center;background:#0d1928}.dot{height:7px;width:7px;border-radius:50%;background:var(--green);box-shadow:0 0 10px var(--green)}.ghost-btn,.primary-btn,.small-btn{border:1px solid var(--line);border-radius:10px;padding:9px 13px;background:#132236;color:#d9e6f3;font-size:12px}.ghost-btn:hover,.small-btn:hover{border-color:#52728e;background:#192c43}.primary-btn{background:linear-gradient(135deg,#4bc7c3,#468cce);border:0;color:#05151e;font-weight:800;box-shadow:0 7px 20px rgba(85,214,208,.16)}.primary-btn:hover{filter:brightness(1.08)}.lang-btn{display:flex;align-items:center;gap:6px;border:1px solid var(--cyan);border-radius:10px;padding:8px 12px;background:rgba(85,214,208,.1);color:#dffffd;font-size:12px;font-weight:700;transition:.2s}.lang-btn:hover{background:rgba(85,214,208,.2);box-shadow:0 0 14px rgba(85,214,208,.25)}.content{max-width:1500px;margin:auto;padding:30px 34px 54px}.page{display:none;animation:fade .25s ease}.page.active{display:block}@keyframes fade{from{opacity:.4;transform:translateY(5px)}to{opacity:1;transform:none}}.eyebrow{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--cyan);font-weight:800;margin-bottom:10px}.page-head{display:flex;align-items:flex-end;justify-content:space-between;gap:18px;margin-bottom:24px}.page-head h1{font-size:clamp(25px,3vw,36px);letter-spacing:-.03em;margin:0 0 8px}.page-head p{margin:0;color:var(--muted);font-size:13px;line-height:1.6;max-width:740px}.card{background:linear-gradient(145deg,rgba(18,32,50,.96),rgba(13,25,40,.96));border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow)}.hero{padding:27px;display:grid;grid-template-columns:1.4fr .8fr;gap:24px;overflow:hidden;position:relative;margin-bottom:20px}.hero:after{content:"";position:absolute;width:340px;height:340px;border-radius:50%;border:1px solid rgba(85,214,208,.12);right:5%;top:-62%;box-shadow:0 0 0 34px rgba(85,214,208,.025),0 0 0 70px rgba(85,214,208,.02)}.hero h2{font-size:clamp(26px,3.5vw,42px);line-height:1.2;margin:0 0 13px;max-width:700px}.hero h2 span{color:var(--cyan)}.hero p{color:#a9bbce;line-height:1.7;font-size:13px;max-width:650px;margin:0 0 20px}.hero-actions{display:flex;gap:9px;flex-wrap:wrap}.hero-visual{align-self:center;z-index:1;padding:14px}.pulse-card{border:1px solid #2b465b;border-radius:16px;padding:16px;background:rgba(7,18,30,.65);max-width:330px;margin:auto}.pulse-top{display:flex;justify-content:space-between;color:#9db3c9;font-size:10px}.pulse-number{font-size:42px;font-weight:800;margin:18px 0 5px}.pulse-number span{font-size:14px;color:var(--muted);font-weight:500}.spark{height:74px;width:100%;margin-top:8px}.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:20px}.kpi{padding:17px 18px;min-width:0}.kpi-top{display:flex;justify-content:space-between;align-items:center;color:var(--muted);font-size:11px}.kpi-icon{width:29px;height:29px;border-radius:9px;display:grid;place-items:center;background:#1c3248;color:var(--cyan);font-size:14px}.kpi-val{font-size:28px;font-weight:800;margin:11px 0 4px}.kpi-foot{font-size:10px;color:#8298ae}.green{color:var(--green)!important}.red{color:var(--red)!important}.amber{color:var(--amber)!important}.cyan{color:var(--cyan)!important}.blue{color:var(--blue)!important}.grid-2{display:grid;grid-template-columns:1.12fr .88fr;gap:16px}.card-head{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:18px 20px 12px}.card-title{font-size:14px;font-weight:750}.card-sub{font-size:10px;color:var(--muted);margin-top:4px}.card-body{padding:8px 20px 20px}.tag{font-size:9px;letter-spacing:.05em;text-transform:uppercase;padding:6px 8px;border-radius:999px;border:1px solid #38506b;color:#a8bed4;background:#13253a}.table-wrap{overflow:auto}table{width:100%;border-collapse:collapse;white-space:nowrap}th{color:#8095aa;font-size:9px;letter-spacing:.08em;text-transform:uppercase;font-weight:700;padding:11px 10px;border-bottom:1px solid var(--line)}td{padding:12px 10px;border-bottom:1px solid rgba(36,53,74,.6);font-size:11px;color:#d2dfeb}tr:last-child td{border-bottom:0}.machine{display:flex;align-items:center;gap:9px;font-weight:700}.machine-icon{width:26px;height:26px;border-radius:8px;background:#20354c;display:grid;place-items:center;color:#8cbaff}.status{font-size:9px;padding:5px 8px;border-radius:999px;display:inline-block}.status.alert{color:#ff9ca3;background:rgba(255,115,125,.12)}.status.safe{color:#83e3b2;background:rgba(98,214,155,.12)}.status.watch{color:#f3c978;background:rgba(244,189,98,.12)}.bar-row{display:grid;grid-template-columns:110px 1fr 50px;gap:10px;align-items:center;margin:15px 0;font-size:10px;color:#a7b8c9}.track{height:7px;background:#22344a;border-radius:20px;overflow:hidden}.fill{height:100%;border-radius:20px;background:linear-gradient(90deg,#48b9c2,#7aaaff)}.insight{padding:9px 12px;background:rgba(85,214,208,.06);color:#a9bed0;font-size:11px;line-height:1.6;margin-top:13px}.section-grid{display:grid;grid-template-columns:330px 1fr;gap:16px;align-items:start}.control-card{padding:20px}.control-card h3{margin:0 0 5px;font-size:14px}.muted{color:var(--muted)}.help{font-size:10px;color:#859bb1;line-height:1.55;margin:4px 0 15px}.field{margin:19px 0}.field-head{display:flex;justify-content:space-between;gap:10px;align-items:center;margin-bottom:9px;font-size:11px;color:#c7d5e3}.field-head strong{color:var(--cyan);font-size:14px}.segmented{display:flex;gap:6px}.segmented button{flex:1;padding:9px 5px;border:1px solid #2b4057;background:#0c1929;color:#91a6bc;border-radius:99px;font-size:11px;transition:.2s}.segmented button.selected{border-color:var(--cyan);background:rgba(85,214,208,.12);color:#dffffd}.range{width:100%;accent-color:var(--cyan)}.range-scale{display:flex;justify-content:space-between;color:#637b94;font-size:9px;margin-top:4px}.formula{padding:13px;border:1px dashed #36516c;background:#0b1928;border-radius:12px;font-family:ui-monospace,SFMono-Regular,monospace;font-size:12px;color:#c5d9ed;text-align:center;margin:15px 0;direction:ltr}.formula b{color:var(--cyan)}.result-hero{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px}.result-box{padding:18px;border-radius:14px;border:1px solid var(--line);background:#0c1a2a}.result-box .label{font-size:10px;color:#8fa4ba}.result-box .big{font-size:31px;font-weight:850;margin:7px 0 3px}.result-box .caption{font-size:10px;color:#8298ad}.stat-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:14px 0}.mini-stat{padding:13px;border:1px solid var(--line);border-radius:12px;background:#0d1a2a}.mini-stat span{display:block;color:#8da3b9;font-size:9px;margin-bottom:7px}.mini-stat b{font-size:20px}.scale-chart{position:relative;height:108px;border-bottom:1px solid #31455b;margin:18px 8px 25px}.scale-chart .axis{position:absolute;left:0;right:0;bottom:-18px;display:flex;justify-content:space-between;font-size:9px;color:#637c95;direction:ltr}.scale-chart .threshold{position:absolute;top:0;bottom:0;width:2px;background:var(--cyan);box-shadow:0 0 12px rgba(85,214,208,.45)}.scale-chart .threshold:before{content:attr(data-label);position:absolute;top:-18px;left:50%;transform:translateX(-50%);white-space:nowrap;font-size:8px;color:var(--cyan)}.dotplot{position:absolute;inset:10px 0 5px;display:flex;align-items:center;gap:4px;flex-wrap:wrap;align-content:center}.score-dot{width:7px;height:7px;border-radius:50%;background:#6383a3;opacity:.8}.score-dot.hit{background:var(--green)}.warning-box{padding:12px 14px;border:1px solid rgba(244,189,98,.32);background:rgba(244,189,98,.07);color:#e6c98e;border-radius:11px;font-size:10px;line-height:1.55;margin:12px 0}.success-box{padding:12px 14px;border:1px solid rgba(98,214,155,.3);background:rgba(98,214,155,.06);color:#9ee6bf;border-radius:11px;font-size:10px;line-height:1.55;margin:12px 0}.shift-layout{display:grid;grid-template-columns:.9fr 1.1fr;gap:16px}.shift-metric{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}.shift-metric .result-box{min-height:126px}.shift-bars{padding:18px 20px}.compare-row{display:grid;grid-template-columns:140px 1fr 55px;gap:12px;align-items:center;margin:17px 0;font-size:10px;color:#a9bbce}.compare-row .track{height:11px}.compare-row .fill.bad{background:linear-gradient(90deg,#ee797c,#b94f67)}.compare-row .fill.good{background:linear-gradient(90deg,#50c99e,#55d6d0)}.budget-layout{display:grid;grid-template-columns:310px 1fr;gap:16px}.budget-chart{padding:20px}.budget-point{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:16px}.paper-results{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.paper-result{padding:17px}.paper-result .big{font-size:27px;font-weight:800;margin:10px 0 4px}.paper-result p{font-size:10px;color:#8fa5bb;line-height:1.55;margin:0}.method-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.method{padding:17px}.method .num{font-size:10px;color:var(--cyan)}.method h3{font-size:13px;margin:9px 0}.method p{font-size:10px;color:#8fa5bb;line-height:1.6;margin:0}.footer-note{margin-top:20px;border-top:1px solid var(--line);padding-top:14px;font-size:10px;color:#70869d;line-height:1.6}.toast{position:fixed;bottom:22px;right:22px;background:#183149;border:1px solid #42627a;color:#e9f7ff;padding:12px 16px;border-radius:12px;font-size:12px;box-shadow:var(--shadow);opacity:0;transform:translateY(12px);transition:.25s;pointer-events:none;z-index:20}.toast.show{opacity:1;transform:none}.mobile-menu{display:none}
+
+/* RTL (Arabic) specific */
+html[dir="rtl"] body{direction:rtl;text-align:right}
+html[dir="rtl"] .sidebar{border-left:1px solid var(--line);border-right:0}
+html[dir="rtl"] .nav button{text-align:right}
+html[dir="rtl"] .nav button.active{background:linear-gradient(270deg,rgba(85,214,208,.16),rgba(85,214,208,.04));box-shadow:inset -2px 0 var(--cyan);color:#e9ffff}
+html[dir="rtl"] th{text-align:right}
+html[dir="rtl"] .insight{border-right:2px solid var(--cyan);border-radius:9px 0 0 9px}
+html[dir="rtl"] .toast{right:auto;left:22px}
+
+/* LTR (English) specific */
+html[dir="ltr"] body{direction:ltr;text-align:left}
+html[dir="ltr"] .sidebar{border-right:1px solid var(--line);border-left:0}
+html[dir="ltr"] .nav button{text-align:left}
+html[dir="ltr"] .nav button.active{background:linear-gradient(90deg,rgba(85,214,208,.16),rgba(85,214,208,.04));box-shadow:inset 2px 0 var(--cyan);color:#e9ffff}
+html[dir="ltr"] th{text-align:left}
+html[dir="ltr"] .insight{border-left:2px solid var(--cyan);border-radius:0 9px 9px 0}
+html[dir="ltr"] .toast{left:auto;right:22px}
+
+@media(max-width:1050px){.app{grid-template-columns:210px 1fr}.hero{grid-template-columns:1fr}.hero-visual{display:none}.kpis{grid-template-columns:repeat(2,1fr)}.section-grid,.budget-layout{grid-template-columns:290px 1fr}.grid-2,.shift-layout{grid-template-columns:1fr}}
+@media(max-width:760px){.app{display:block}
+  html[dir="rtl"] .sidebar{position:fixed;left:auto;right:-260px;top:0;width:240px;z-index:15;transition:.25s;box-shadow:var(--shadow)}
+  html[dir="rtl"] .sidebar.open{left:auto;right:0}
+  html[dir="ltr"] .sidebar{position:fixed;right:auto;left:-260px;top:0;width:240px;z-index:15;transition:.25s;box-shadow:var(--shadow)}
+  html[dir="ltr"] .sidebar.open{right:auto;left:0}
+  .mobile-menu{display:inline-flex}.topbar{padding:0 16px;height:64px}.content{padding:22px 15px 40px}.page-head{align-items:flex-start;flex-direction:column}.hero{padding:21px}.kpis{gap:9px}.kpi{padding:13px}.kpi-val{font-size:23px}.section-grid,.budget-layout{grid-template-columns:1fr}.paper-results,.method-grid{grid-template-columns:1fr}.stat-strip{grid-template-columns:1fr 1fr}.top-actions .pill{display:none}.result-hero{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+<div class="app">
+<aside class="sidebar" id="sidebar">
+  <div class="brand"><div class="brand-mark">G</div><div><div class="brand-name">GUARD</div><div class="brand-sub" data-i18n="brandSub">معمل أمان الأنظمة / الإصدار 0.9</div></div></div>
+  <div><div class="nav-label" data-i18n="workspace">مساحة العمل</div><nav class="nav">
+    <button class="active" data-page="overview"><span class="ico">◫</span><span data-i18n="nav_overview">الرئيسية</span></button>
+    <button data-page="guard"><span class="ico">⌁</span><span data-i18n="nav_guard">معايرة الحارس</span></button>
+    <button data-page="shift"><span class="ico">⇄</span><span data-i18n="nav_shift">اختبار تغيّر الأسطول</span></button>
+    <button data-page="budget"><span class="ico">◷</span><span data-i18n="nav_budget">ميزانية الفحص</span></button>
+    <button data-page="findings"><span class="ico">▤</span><span data-i18n="nav_findings">نتائج البحث</span></button>
+  </nav></div>
+  <div class="side-bottom"><div class="demo-note"><strong data-i18n="demoNoteStrong">بيئة تجريبية</strong><span data-i18n="demoNoteText">كل التجارب تستخدم بيانات تجريبية مولّدة. لا توجد أي ماكينة حقيقية متصلة بالنظام.</span></div></div>
+</aside>
+<main class="main">
+<header class="topbar">
+  <div style="display:flex;align-items:center;gap:12px">
+    <button class="ghost-btn mobile-menu" id="menuBtn">☰</button>
+    <div class="crumb"><span id="crumbPrefix">الحارس</span> <span style="color:#526981">/</span> <b id="crumbName">الرئيسية</b></div>
+  </div>
+  <div class="top-actions">
+    <div class="pill"><span class="dot"></span><span data-i18n="sysStatus">النظام يعمل · وضع المحاكاة</span></div>
+    <span class="tag" data-i18n="modeTag">العربية / English</span>
+    <button class="lang-btn" id="langToggleBtn" title="Translate page">
+      <span>🌐</span>
+      <span id="langToggleText">English</span>
+    </button>
+  </div>
+</header>
+<div class="content">
+<section class="page active" id="page-overview">
+  <div class="hero card">
+    <div>
+      <div class="eyebrow" data-i18n="heroEyebrow">الصيانة التنبؤية / أمان القرار</div>
+      <h2 data-i18n-html="heroH2">انخفاض الخطأ لا يعني أن <span>الإنذار آمن.</span></h2>
+      <p data-i18n="heroP">قد يتوقع نموذج الذكاء الاصطناعي العمر التشغيلي المتبقي بدقة في المتوسط، ومع ذلك يفشل في التحذير من بعض الماكينات التي تتعطل قبل موعد الفحص التالي. يضيف الحارس حدًا للإنذار تتم معايرته خصيصًا للماكينات المعرّضة للعطل.</p>
+      <div class="hero-actions">
+        <button class="primary-btn" data-goto="guard" data-i18n="heroBtnGuard">افتح معمل الحارس ←</button>
+        <button class="ghost-btn" data-goto="shift" data-i18n="heroBtnShift">ابدأ اختبار تغيّر الأسطول</button>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="pulse-card">
+        <div class="pulse-top"><span data-i18n="pulseTitle">مؤشر أمان الحارس</span><span class="cyan" data-i18n="pulseTag">● عرض تجريبي</span></div>
+        <div class="pulse-number" id="pulseNumberEl" data-i18n-html="pulseNumber">90<span>% من الأعطال المستهدف اكتشافها</span></div>
+        <div style="font-size:10px;color:#8da5ba" data-i18n="pulseSub">نسبة التفويت المستهدفة: 10% · فترة الفحص: 30 يومًا</div>
+        <svg class="spark" viewBox="0 0 300 74" preserveAspectRatio="none"><defs><linearGradient id="sparkfill" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#55d6d0" stop-opacity=".28"/><stop offset="1" stop-color="#55d6d0" stop-opacity="0"/></linearGradient></defs><path d="M0 54 C22 49 24 30 46 39 S78 60 99 33 S133 26 151 37 S180 51 201 22 S236 31 252 19 S278 23 300 7 L300 74 L0 74Z" fill="url(#sparkfill)"/><path d="M0 54 C22 49 24 30 46 39 S78 60 99 33 S133 26 151 37 S180 51 201 22 S236 31 252 19 S278 23 300 7" fill="none" stroke="#55d6d0" stroke-width="2"/></svg>
+      </div>
+    </div>
+  </div>
+  <div class="kpis">
+    <div class="card kpi"><div class="kpi-top"><span data-i18n="kpi1Label">الأقراص في الدراسة</span><span class="kpi-icon">▦</span></div><div class="kpi-val">343,944</div><div class="kpi-foot" data-i18n="kpi1Foot">حجم أسطول Backblaze المذكور في البحث</div></div>
+    <div class="card kpi"><div class="kpi-top"><span data-i18n="kpi2Label">نسبة الأعطال التي فوّتها الحارس</span><span class="kpi-icon">⌖</span></div><div class="kpi-val green">7.5%</div><div class="kpi-foot" data-i18n="kpi2Foot">حسب البحث · α = 10% · 30 يومًا</div></div>
+    <div class="card kpi"><div class="kpi-top"><span data-i18n="kpi3Label">نسبة التفويت في قاعدة SMART</span><span class="kpi-icon">△</span></div><div class="kpi-val red">25.6%</div><div class="kpi-foot" data-i18n="kpi3Foot">خط الأساس الصناعي المذكور في البحث</div></div>
+    <div class="card kpi"><div class="kpi-top"><span data-i18n="kpi4Label">مجموعة المعايرة</span><span class="kpi-icon">◎</span></div><div class="kpi-val" id="kpi4ValEl" data-i18n-html="kpi4Val">20 <span style="font-size:13px;color:#8ba1b7;font-weight:500">حالة عطل</span></div><div class="kpi-foot" data-i18n="kpi4Foot">استُخدمت لإعادة المعايرة على الأسطول الجديد</div></div>
+  </div>
+  <div class="grid-2">
+    <div class="card">
+      <div class="card-head"><div><div class="card-title" data-i18n="overviewTableTitle">مراقبة الماكينات</div><div class="card-sub" data-i18n="overviewTableSub">أسطول توضيحي · قراءات مولّدة</div></div><span class="tag" data-i18n="simTag">محاكاة</span></div>
+      <div class="card-body">
+        <div class="table-wrap"><table><thead><tr><th data-i18n="thMachine">الماكينة</th><th data-i18n="thPredRUL">العمر المتبقي المتوقع</th><th data-i18n="thActRUL">العمر المتبقي الفعلي*</th><th data-i18n="thDecision">القرار</th></tr></thead><tbody id="overviewTable"></tbody></table></div>
+        <div class="footer-note" data-i18n="overviewFooter">*نعرض العمر المتبقي الفعلي لأننا في محاكاة. في الواقع لا نعرفه مسبقًا؛ ولا يظهر إلا بعد العطل أو من سجلات الصيانة.</div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-head"><div><div class="card-title" data-i18n="whyTitle">لماذا الإنذار مهم؟</div><div class="card-sub" data-i18n="whySub">نوعان مختلفان من أخطاء القرار</div></div><span class="tag" data-i18n="coreTag">الفكرة الأساسية</span></div>
+      <div class="card-body">
+        <div class="bar-row"><span data-i18n="barMissedLabel">أعطال تم تفويتها</span><div class="track"><div class="fill" style="width:72%;background:linear-gradient(90deg,#ff777e,#d8586d)"></div></div><b class="red" data-i18n="barMissedBadge">تفويت</b></div>
+        <div class="bar-row"><span data-i18n="barFALabel">فحوصات غير ضرورية</span><div class="track"><div class="fill" style="width:42%;background:linear-gradient(90deg,#edbf70,#cf9850)"></div></div><b class="amber" data-i18n="barFABadge">إنذار كاذب</b></div>
+        <div class="insight" data-i18n="whyInsight">مقياس الأمان هو نسبة الماكينات المعرّضة للعطل التي لم تحصل على إنذار. أما مقياس التكلفة فهو نسبة الماكينات السليمة التي تلقت إنذارًا.</div>
+        <div style="display:flex;gap:8px;margin-top:16px;flex-wrap:wrap">
+          <button class="small-btn" data-goto="guard" data-i18n="whyBtnGuard">استكشف حد الإنذار ←</button>
+          <button class="small-btn" data-goto="findings" data-i18n="whyBtnFindings">اعرض نتائج البحث ←</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="page" id="page-guard">
+  <div class="page-head">
+    <div><div class="eyebrow" data-i18n="guardEyebrow">التجربة التفاعلية 01</div><h1 data-i18n="guardH1">معمل معايرة GUARD</h1><p data-i18n="guardP">اختار نسبة التفويت اللي تقبلها وعدد الأعطال المسجلة. المعمل هيحسب حد الإنذار وفق عدد الحالات، وبعدها يختبره على مجموعة ماكينات تجريبية مختلفة.</p></div>
+    <span class="tag" data-i18n="guardTag">العمر المتبقي · W = 30 دورة</span>
+  </div>
+  <div class="section-grid">
+    <div class="card control-card">
+      <h3 data-i18n="guardCtrlTitle">إعدادات المعايرة</h3>
+      <p class="help" data-i18n="guardCtrlHelp">هذه الإعدادات تغيّر حد الإنذار فقط، ولا تعيد تدريب نموذج التنبؤ.</p>
+      <div class="field">
+        <div class="field-head"><span data-i18n="alphaFieldLabel">نسبة التفويت المستهدفة (α)</span><strong id="alphaLabel">10%</strong></div>
+        <div class="segmented" id="alphaButtons"><button data-alpha="0.05">5%</button><button class="selected" data-alpha="0.1">10%</button><button data-alpha="0.2">20%</button></div>
+        <div class="help" data-i18n="alphaHelp">كلما قلّت قيمة α، قلّت نسبة الأعطال المسموح بتفويتها، لكن غالبًا هتزيد الإنذارات الكاذبة.</div>
+      </div>
+      <div class="field">
+        <div class="field-head"><span data-i18n="nFieldLabel">عدد حالات العطل المسجلة (n)</span><strong id="nLabel">20</strong></div>
+        <input class="range" id="nRange" type="range" min="1" max="80" value="20"/>
+        <div class="range-scale"><span data-i18n="nScale1">حالة واحدة</span><span data-i18n="nScale2">80 حالة</span></div>
+        <div class="help" data-i18n="nHelp">لقطة مستقلة واحدة لكل ماكينة معرّضة للعطل.</div>
+      </div>
+      <div class="formula">k = ⌈(n + 1) × (1 − α)⌉</div>
+      <div class="field">
+        <div class="field-head"><span data-i18n="kFieldLabel">ترتيب القيمة المختارة (k)</span><strong id="kLabel">19</strong></div>
+        <p class="help" id="minDataText">...</p>
+      </div>
+      <button class="primary-btn" style="width:100%" id="recalibrateBtn" data-i18n="recalibrateBtn">أعد حساب حد الإنذار</button>
+    </div>
+    <div class="card">
+      <div class="card-head"><div><div class="card-title" data-i18n="guardResTitle">نتيجة المعايرة</div><div class="card-sub" data-i18n="guardResSub">حد الإنذار هو القيمة رقم k بعد ترتيب درجات الماكينات المعرّضة للعطل من الأصغر للأكبر.</div></div><span class="tag" data-i18n="guardEngineTag">محرك الحارس</span></div>
+      <div class="card-body">
+        <div class="result-hero">
+          <div class="result-box"><div class="label" data-i18n="thResLabel">حد الإنذار المحسوب</div><div class="big cyan" id="thresholdValue">—</div><div class="caption" id="thresholdCaption">...</div></div>
+          <div class="result-box"><div class="label" data-i18n="boundResLabel">الحد النظري لنسبة التفويت</div><div class="big green" id="boundValue">—</div><div class="caption" id="boundCaption">...</div></div>
+        </div>
+        <div id="guardMessage" class="success-box">...</div>
+        <div class="scale-chart" id="scoreChart">
+          <div class="dotplot" id="calibrationDots"></div>
+          <div class="threshold" id="thresholdMarker" style="left:70%" data-label="حد الإنذار"></div>
+          <div class="axis"><span id="axis0Label">0 دورة</span><span>30</span><span>60</span><span>90</span><span id="axis120Label">120+</span></div>
+        </div>
+        <div class="stat-strip">
+          <div class="mini-stat"><span data-i18n="statAtRiskLabel">ماكينات اختبار معرّضة للعطل</span><b id="atRiskCount">200</b></div>
+          <div class="mini-stat"><span data-i18n="statTestMissLabel">نسبة التفويت في الاختبار</span><b id="testMiss" class="green">—</b></div>
+          <div class="mini-stat"><span data-i18n="statTestFALabel">نسبة الإنذارات الكاذبة للماكينات السليمة</span><b id="testFA" class="amber">—</b></div>
+        </div>
+        <div class="card-sub" style="margin:14px 0 8px" data-i18n="ruleCompareSub">مقارنة القواعد على نفس ماكينات الاختبار المولّدة</div>
+        <div class="table-wrap"><table><thead><tr><th data-i18n="thRule">قاعدة إطلاق الإنذار</th><th data-i18n="thMissedUnits">ماكينات معرّضة للعطل تم تفويتها</th><th data-i18n="thFAUnits">ماكينات سليمة حصلت على إنذار</th><th data-i18n="thNotes">ملاحظة</th></tr></thead><tbody id="ruleCompare"></tbody></table></div>
+        <div class="footer-note" data-i18n="guardFooter">*الضمان احتمالي على مستوى الحالات القابلة للتبادل بين المعايرة والحالات الجديدة، وليس ضمانًا مستقلًا لكل فئة أو لكل مجموعة معايرة منفردة. نتائج الاختبار هنا توضيحية ومولّدة، وليست نتائج البحث الأصلية.</div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="page" id="page-shift">
+  <div class="page-head">
+    <div><div class="eyebrow" data-i18n="shiftEyebrow">التجربة التفاعلية 02</div><h1 data-i18n="shiftH1">اختبار الضغط عند تغيّر الأسطول</h1><p data-i18n="shiftP">خلّي نموذج التنبؤ زي ما هو، وانقله لأسطول مختلف في توزيع درجات الأعطال. راقب تأثير ده على حد الإنذار القديم، وبعدها أعد المعايرة باستخدام أعطال من الأسطول الجديد.</p></div>
+    <span class="tag" data-i18n="shiftTag">تغيّر توزيع البيانات</span>
+  </div>
+  <div class="shift-layout">
+    <div class="card control-card">
+      <h3 data-i18n="shiftCtrlTitle">إعدادات الأسطول الجديد</h3>
+      <p class="help" data-i18n="shiftCtrlHelp">نطبّق تغيّرًا اصطناعيًا يمكن التحكم فيه على درجات الماكينات المعرّضة للعطل، مع إبقاء النموذج كما هو.</p>
+      <div class="field">
+        <div class="field-head"><span data-i18n="shiftNLabel">عدد أعطال معايرة الأسطول الجديد</span><strong id="shiftNLabel">20</strong></div>
+        <input class="range" id="shiftN" type="range" min="5" max="60" value="20"/>
+        <div class="range-scale"><span>5</span><span>60</span></div>
+      </div>
+      <div class="field">
+        <div class="field-head"><span data-i18n="shiftIntensityLabel">شدة التغيّر</span><strong id="shiftIntensityLabelText">مرتفع</strong></div>
+        <div class="segmented" id="shiftButtons"><button data-shift="10" data-shift-level="low">منخفض</button><button data-shift="20" data-shift-level="med">متوسط</button><button class="selected" data-shift="30" data-shift-level="high">مرتفع</button></div>
+      </div>
+      <div class="success-box" data-i18n="shiftSteps">خطوات التجربة: تدريب مرة واحدة على الأسطول A ← معايرة على A ← اختبار على B ← إعادة معايرة حد الإنذار باستخدام أعطال من B.</div>
+      <button class="primary-btn" id="runShift" style="width:100%" data-i18n="runShiftBtn">شغّل تجربة تغيّر الأسطول</button>
+    </div>
+    <div class="card">
+      <div class="card-head"><div><div class="card-title" data-i18n="shiftResTitle">مقارنة قبل إعادة المعايرة وبعدها</div><div class="card-sub" data-i18n="shiftResSub">نفس النموذج · مجموعة معايرة مختلفة</div></div><span class="tag" data-i18n="simExpTag">تجربة محاكاة</span></div>
+      <div class="card-body">
+        <div class="shift-metric">
+          <div class="result-box"><div class="label" data-i18n="oldMissLabel">نسبة التفويت باستخدام الحد القديم</div><div class="big red" id="oldMiss">—</div><div class="caption" data-i18n="oldMissCap">استخدام حد الأسطول A مع الأسطول B</div></div>
+          <div class="result-box"><div class="label" data-i18n="newMissLabel">نسبة التفويت باستخدام الحد الجديد</div><div class="big green" id="newMiss">—</div><div class="caption" data-i18n="newMissCap">إعادة المعايرة باستخدام الأسطول B</div></div>
+        </div>
+        <div class="shift-bars">
+          <div class="compare-row"><span data-i18n="barOldMiss">حد الإنذار القديم</span><div class="track"><div class="fill bad" id="oldMissBar" style="width:0%"></div></div><b class="red" id="oldMissText">—</b></div>
+          <div class="compare-row"><span data-i18n="barNewMiss">حد الإنذار الجديد</span><div class="track"><div class="fill good" id="newMissBar" style="width:0%"></div></div><b class="green" id="newMissText">—</b></div>
+          <div class="compare-row"><span data-i18n="barOldTh">حد الأسطول الأصلي</span><div class="track"><div class="fill" id="oldThresholdBar" style="width:0%"></div></div><b id="oldThresholdText">—</b></div>
+          <div class="compare-row"><span data-i18n="barNewTh">حد الأسطول المستهدف</span><div class="track"><div class="fill good" id="newThresholdBar" style="width:0%"></div></div><b id="newThresholdText">—</b></div>
+        </div>
+        <div class="insight" id="shiftInsight">...</div>
+        <div class="footer-note" data-i18n="shiftFooter">البحث ذكر أن نسبة التفويت كانت 27.1% عند استخدام حد معاير على الأسطول الأصلي، وانخفضت إلى 10.0% بعد إعادة المعايرة باستخدام 20 عطلًا من الأسطول الجديد. المحاكي هنا يستخدم بيانات مولّدة، لذلك لن يعيد إنتاج أرقام البحث نفسها.</div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="page" id="page-budget">
+  <div class="page-head">
+    <div><div class="eyebrow" data-i18n="budgetEyebrow">التجربة التفاعلية 03</div><h1 data-i18n="budgetH1">محاكي ميزانية الفحص</h1><p data-i18n="budgetP">لا تستطيع فرق الصيانة فحص كل الماكينات. استكشف العلاقة بين نسبة الماكينات السليمة التي يمكن فحصها ونسبة الماكينات المعطلة التي ننجح في اكتشافها.</p></div>
+    <span class="tag" data-i18n="budgetTag">التكلفة مقابل الأمان</span>
+  </div>
+  <div class="budget-layout">
+    <div class="card control-card">
+      <h3 data-i18n="budgetCtrlTitle">قدرة الفحص المتاحة</h3>
+      <p class="help" data-i18n="budgetCtrlHelp">اختر نسبة الماكينات السليمة التي تستطيع جهة التشغيل تحمّل تكلفة فحصها.</p>
+      <div class="field">
+        <div class="field-head"><span data-i18n="budgetFieldLabel">نسبة الماكينات السليمة التي سيتم فحصها</span><strong id="budgetLabel">5%</strong></div>
+        <input class="range" id="budgetRange" type="range" min="1" max="50" value="5"/>
+        <div class="range-scale"><span>1%</span><span>50%</span></div>
+      </div>
+      <div class="success-box" data-i18n="budgetBox">يرتب المحاكي درجات الخطورة للماكينات السليمة والمعرّضة للعطل، ثم يختار حدًا يلتزم بميزانية الفحص التي حددتها.</div>
+      <button class="primary-btn" id="runBudget" style="width:100%" data-i18n="runBudgetBtn">طبّق ميزانية الفحص</button>
+    </div>
+    <div class="card budget-chart">
+      <div class="card-head" style="padding:0 0 12px"><div><div class="card-title" data-i18n="budgetResTitle">نتيجة تشغيل تجريبية</div><div class="card-sub" data-i18n="budgetResSub">درجات خطورة مولّدة · الدرجة الأكبر تعني خطورة أعلى</div></div><span class="tag" data-i18n="budgetResTag">ليس ضمانًا إحصائيًا</span></div>
+      <div class="budget-point">
+        <div class="result-box"><div class="label" data-i18n="budgetCatchLabel">نسبة الماكينات المعطلة التي اكتشفناها</div><div class="big green" id="budgetCatch">—</div><div class="caption" data-i18n="budgetCatchCap">نسبة الاكتشاف بين الماكينات المعرّضة للعطل</div></div>
+        <div class="result-box"><div class="label" data-i18n="budgetFALabel">نسبة الماكينات السليمة التي أعطيناها إنذارًا</div><div class="big amber" id="budgetFA">—</div><div class="caption" data-i18n="budgetFACap">نسبة الماكينات السليمة التي تم فحصها</div></div>
+      </div>
+      <div style="margin-top:24px">
+        <div class="compare-row"><span data-i18n="barCatch">الأعطال المكتشفة</span><div class="track"><div class="fill good" id="catchBar" style="width:0%"></div></div><b class="green" id="catchText">—</b></div>
+        <div class="compare-row"><span data-i18n="barFA">الماكينات السليمة التي تلقت إنذارًا</span><div class="track"><div class="fill" id="faBar" style="width:0%"></div></div><b class="amber" id="faText">—</b></div>
+      </div>
+      <div class="insight" data-i18n="budgetInsight">هذا محاكي تجريبي، وليس الشهادة الإحصائية لوضع ميزانية الفحص المذكورة في البحث. يجب مراجعة اشتقاق هذا الجزء وتعريف المتغير m واتجاه درجة الخطورة قبل تقديمه كضمان رسمي.</div>
+    </div>
+  </div>
+</section>
+<section class="page" id="page-findings">
+  <div class="page-head">
+    <div><div class="eyebrow" data-i18n="findingsEyebrow">ملخص البحث</div><h1 data-i18n="findingsH1">النتائج المذكورة في البحث</h1><p data-i18n="findingsP">هذه هي الأرقام الواردة في البحث الذي أرسلته. نفصلها عن التجارب التفاعلية الاصطناعية الموجودة في الأقسام السابقة.</p></div>
+    <span class="tag" data-i18n="findingsTag">كما وردت في البحث</span>
+  </div>
+  <div class="paper-results">
+    <div class="card paper-result"><div class="eyebrow" data-i18n="p1Eyebrow">C-MAPSS · نفس الأسطول</div><div class="big green">7.9%</div><p data-i18n="p1P">نسبة التفويت باستخدام GUARD عند α = 10%، وفترة ثقة 95% من 4.9% إلى 11.3%.</p></div>
+    <div class="card paper-result"><div class="eyebrow" data-i18n="p2Eyebrow">C-MAPSS · تغيّر الأسطول</div><div class="big red">27.1%</div><p data-i18n="p2P">نسبة التفويت عند نقل حد الإنذار من الأسطول الأصلي دون إعادة معايرة.</p></div>
+    <div class="card paper-result"><div class="eyebrow" data-i18n="p3Eyebrow">C-MAPSS · بعد إعادة المعايرة</div><div class="big green">10.0%</div><p data-i18n="p3P">نسبة التفويت بعد إعادة المعايرة باستخدام 20 عطلًا من الأسطول الجديد (فترة الثقة 95%: من 7.1% إلى 13.3%).</p></div>
+  </div>
+  <div style="height:16px"></div>
+  <div class="paper-results">
+    <div class="card paper-result"><div class="eyebrow" data-i18n="p4Eyebrow">BACKBLAZE · قاعدة SMART التقليدية</div><div class="big red">25.6%</div><p data-i18n="p4P">نسبة الأعطال التي فوّتتها قاعدة SMART الصناعية خلال فترة الاختبار المذكورة.</p></div>
+    <div class="card paper-result"><div class="eyebrow" data-i18n="p5Eyebrow">BACKBLAZE · الحارس</div><div class="big green">7.5%</div><p data-i18n="p5P">نسبة التفويت باستخدام GUARD عند α = 10% وفق الجدول 7 في البحث.</p></div>
+    <div class="card paper-result"><div class="eyebrow" data-i18n="p6Eyebrow">BACKBLAZE · إنذارات الماكينات السليمة</div><div class="big amber">47.6%</div><p data-i18n="p6P">نسبة الأقراص السليمة التي أُرسلت إليها إنذارات للوصول إلى اكتشاف نحو 90% من الأعطال، وفق منحنى المفاضلة في البحث.</p></div>
+  </div>
+  <div class="warning-box" data-i18n="auditWarning">ملاحظة تدقيق: الملخص في البحث يذكر نسبة 7.4% لأعطال الأقراص، بينما الجدول 7 والمتن يذكران 7.5%. عرضنا هنا 7.5% لأنها القيمة الواردة في الجدول الرئيسي.</div>
+  <div style="height:18px"></div>
+  <div class="card">
+    <div class="card-head"><div><div class="card-title" data-i18n="methodTitle">كيف تعمل الطريقة؟</div><div class="card-sub" data-i18n="methodSub">ثلاث خطوات من درجة النموذج إلى قرار صيانة تمت معايرته</div></div></div>
+    <div class="card-body">
+      <div class="method-grid">
+        <div class="method"><div class="num" data-i18n="m1Num">01 / التقييم</div><h3 data-i18n="m1H">توقّع حالة الماكينة</h3><p data-i18n="m1P">يستخدم نموذج موجود سجل الحساسات لتقدير العمر التشغيلي المتبقي أو درجة احتمال العطل.</p></div>
+        <div class="method"><div class="num" data-i18n="m2Num">02 / المعايرة</div><h3 data-i18n="m2H">التعلّم من الأعطال المسجلة</h3><p data-i18n="m2P">نرتب درجات النموذج للماكينات المعرّضة للعطل، ونختار القيمة ذات الترتيب الذي تحدده α وحجم العينة.</p></div>
+        <div class="method"><div class="num" data-i18n="m3Num">03 / الإنذار</div><h3 data-i18n="m3H">اتخاذ قرار يركز على الأمان</h3><p data-i18n="m3P">نطلق إنذارًا عندما يتجاوز التوقع حد الإنذار المعاير وفق اتجاه الدرجة. ونعيد المعايرة إذا تغيّر توزيع بيانات الأسطول.</p></div>
+      </div>
+    </div>
+  </div>
+  <div class="warning-box" style="margin-top:16px" data-i18n-html="integrityWarning"><strong>ملاحظة تتعلق بسلامة البحث:</strong> النص المرسل لا يحتوي على رابط مستودع يعمل أو ملف التسجيل المسبق الفعلي أو ملفات النموذج أو النتائج الخام. لذلك فالأرقام المعروضة هنا هي أرقام منقولة عن البحث وليست نتائج أعدنا إنتاجها بشكل مستقل. المعامل التفاعلية تستخدم بيانات اصطناعية موضّح أنها تجريبية.</div>
+  <div class="footer-note" data-i18n="findingsFooter">حالة النموذج الأولي: واجهة أمامية للعرض فقط. لا يتصل حاليًا ببيانات NASA C-MAPSS أو Backblaze، ولا يدرّب نموذج XGBoost، ولم يتم التحقق من صلاحيته لاتخاذ قرارات صيانة حقيقية أو للاستخدام في الأنظمة الحساسة للسلامة.</div>
+</section>
+</div>
+</main>
+</div>
+<div class="toast" id="toast">تم التحديث</div>
+<script>
+const $ = (id)=>document.getElementById(id);
+const mulberry32=(a)=>function(){let t=a+=0x6D2B79F5;t=Math.imul(t^t>>>15,t|1);t^=t+Math.imul(t^t>>>7,t|61);return((t^t>>>14)>>>0)/4294967296};
+const rand=mulberry32(872341);
+const sorted=(a)=>[...a].sort((x,y)=>x-y);
+const pct=(x)=>`${(x*100).toFixed(1)}%`;
+
+const i18n = {
+  ar: {
+    appTitle: "الحارس — معمل أمان الصيانة التنبؤية",
+    brandSub: "معمل أمان الأنظمة / الإصدار 0.9",
+    workspace: "مساحة العمل",
+    nav_overview: "الرئيسية",
+    nav_guard: "معايرة الحارس",
+    nav_shift: "اختبار تغيّر الأسطول",
+    nav_budget: "ميزانية الفحص",
+    nav_findings: "نتائج البحث",
+    demoNoteStrong: "بيئة تجريبية",
+    demoNoteText: "كل التجارب تستخدم بيانات تجريبية مولّدة. لا توجد أي ماكينة حقيقية متصلة بالنظام.",
+    crumbPrefix: "الحارس",
+    sysStatus: "النظام يعمل · وضع المحاكاة",
+    modeTag: "العربية / English",
+    langBtn: "English",
+    heroEyebrow: "الصيانة التنبؤية / أمان القرار",
+    heroH2: "انخفاض الخطأ لا يعني أن <span>الإنذار آمن.</span>",
+    heroP: "قد يتوقع نموذج الذكاء الاصطناعي العمر التشغيلي المتبقي بدقة في المتوسط، ومع ذلك يفشل في التحذير من بعض الماكينات التي تتعطل قبل موعد الفحص التالي. يضيف الحارس حدًا للإنذار تتم معايرته خصيصًا للماكينات المعرّضة للعطل.",
+    heroBtnGuard: "افتح معمل الحارس ←",
+    heroBtnShift: "ابدأ اختبار تغيّر الأسطول",
+    pulseTitle: "مؤشر أمان الحارس",
+    pulseTag: "● عرض تجريبي",
+    pulseNumber: "90<span>% من الأعطال المستهدف اكتشافها</span>",
+    pulseSub: "نسبة التفويت المستهدفة: 10% · فترة الفحص: 30 يومًا",
+    kpi1Label: "الأقراص في الدراسة",
+    kpi1Foot: "حجم أسطول Backblaze المذكور في البحث",
+    kpi2Label: "نسبة الأعطال التي فوّتها الحارس",
+    kpi2Foot: "حسب البحث · α = 10% · 30 يومًا",
+    kpi3Label: "نسبة التفويت في قاعدة SMART",
+    kpi3Foot: "خط الأساس الصناعي المذكور في البحث",
+    kpi4Label: "مجموعة المعايرة",
+    kpi4Val: '20 <span style="font-size:13px;color:#8ba1b7;font-weight:500">حالة عطل</span>',
+    kpi4Foot: "استُخدمت لإعادة المعايرة على الأسطول الجديد",
+    overviewTableTitle: "مراقبة الماكينات",
+    overviewTableSub: "أسطول توضيحي · قراءات مولّدة",
+    simTag: "محاكاة",
+    thMachine: "الماكينة",
+    thPredRUL: "العمر المتبقي المتوقع",
+    thActRUL: "العمر المتبقي الفعلي*",
+    thDecision: "القرار",
+    overviewFooter: "*نعرض العمر المتبقي الفعلي لأننا في محاكاة. في الواقع لا نعرفه مسبقًا؛ ولا يظهر إلا بعد العطل أو من سجلات الصيانة.",
+    whyTitle: "لماذا الإنذار مهم؟",
+    whySub: "نوعان مختلفان من أخطاء القرار",
+    coreTag: "الفكرة الأساسية",
+    barMissedLabel: "أعطال تم تفويتها",
+    barMissedBadge: "تفويت",
+    barFALabel: "فحوصات غير ضرورية",
+    barFABadge: "إنذار كاذب",
+    whyInsight: "مقياس الأمان هو نسبة الماكينات المعرّضة للعطل التي لم تحصل على إنذار. أما مقياس التكلفة فهو نسبة الماكينات السليمة التي تلقت إنذارًا.",
+    whyBtnGuard: "استكشف حد الإنذار ←",
+    whyBtnFindings: "اعرض نتائج البحث ←",
+    guardEyebrow: "التجربة التفاعلية 01",
+    guardH1: "معمل معايرة GUARD",
+    guardP: "اختار نسبة التفويت اللي تقبلها وعدد الأعطال المسجلة. المعمل هيحسب حد الإنذار وفق عدد الحالات، وبعدها يختبره على مجموعة ماكينات تجريبية مختلفة.",
+    guardTag: "العمر المتبقي · W = 30 دورة",
+    guardCtrlTitle: "إعدادات المعايرة",
+    guardCtrlHelp: "هذه الإعدادات تغيّر حد الإنذار فقط، ولا تعيد تدريب نموذج التنبؤ.",
+    alphaFieldLabel: "نسبة التفويت المستهدفة (α)",
+    alphaHelp: "كلما قلّت قيمة α، قلّت نسبة الأعطال المسموح بتفويتها، لكن غالبًا هتزيد الإنذارات الكاذبة.",
+    nFieldLabel: "عدد حالات العطل المسجلة (n)",
+    nScale1: "حالة واحدة",
+    nScale2: "80 حالة",
+    nHelp: "لقطة مستقلة واحدة لكل ماكينة معرّضة للعطل.",
+    kFieldLabel: "ترتيب القيمة المختارة (k)",
+    recalibrateBtn: "أعد حساب حد الإنذار",
+    guardResTitle: "نتيجة المعايرة",
+    guardResSub: "حد الإنذار هو القيمة رقم k بعد ترتيب درجات الماكينات المعرّضة للعطل من الأصغر للأكبر.",
+    guardEngineTag: "محرك الحارس",
+    thResLabel: "حد الإنذار المحسوب",
+    boundResLabel: "الحد النظري لنسبة التفويت",
+    thMarkerText: "حد الإنذار",
+    axis0: "0 دورة",
+    axis120: "120+ دورة",
+    statAtRiskLabel: "ماكينات اختبار معرّضة للعطل",
+    statTestMissLabel: "نسبة التفويت في الاختبار",
+    statTestFALabel: "نسبة الإنذارات الكاذبة للماكينات السليمة",
+    ruleCompareSub: "مقارنة القواعد على نفس ماكينات الاختبار المولّدة",
+    thRule: "قاعدة إطلاق الإنذار",
+    thMissedUnits: "ماكينات معرّضة للعطل تم تفويتها",
+    thFAUnits: "ماكينات سليمة حصلت على إنذار",
+    thNotes: "ملاحظة",
+    guardFooter: "*الضمان احتمالي على مستوى الحالات القابلة للتبادل بين المعايرة والحالات الجديدة، وليس ضمانًا مستقلًا لكل فئة أو لكل مجموعة معايرة منفردة. نتائج الاختبار هنا توضيحية ومولّدة، وليست نتائج البحث الأصلية.",
+    shiftEyebrow: "التجربة التفاعلية 02",
+    shiftH1: "اختبار الضغط عند تغيّر الأسطول",
+    shiftP: "خلّي نموذج التنبؤ زي ما هو، وانقله لأسطول مختلف في توزيع درجات الأعطال. راقب تأثير ده على حد الإنذار القديم، وبعدها أعد المعايرة باستخدام أعطال من الأسطول الجديد.",
+    shiftTag: "تغيّر توزيع البيانات",
+    shiftCtrlTitle: "إعدادات الأسطول الجديد",
+    shiftCtrlHelp: "نطبّق تغيّرًا اصطناعيًا يمكن التحكم فيه على درجات الماكينات المعرّضة للعطل، مع إبقاء النموذج كما هو.",
+    shiftNLabel: "عدد أعطال معايرة الأسطول الجديد",
+    shiftIntensityLabel: "شدة التغيّر",
+    shiftLow: "منخفض",
+    shiftMed: "متوسط",
+    shiftHigh: "مرتفع",
+    shiftSteps: "خطوات التجربة: تدريب مرة واحدة على الأسطول A ← معايرة على A ← اختبار على B ← إعادة معايرة حد الإنذار باستخدام أعطال من B.",
+    runShiftBtn: "شغّل تجربة تغيّر الأسطول",
+    shiftResTitle: "مقارنة قبل إعادة المعايرة وبعدها",
+    shiftResSub: "نفس النموذج · مجموعة معايرة مختلفة",
+    simExpTag: "تجربة محاكاة",
+    oldMissLabel: "نسبة التفويت باستخدام الحد القديم",
+    oldMissCap: "استخدام حد الأسطول A مع الأسطول B",
+    newMissLabel: "نسبة التفويت باستخدام الحد الجديد",
+    newMissCap: "إعادة المعايرة باستخدام الأسطول B",
+    barOldMiss: "حد الإنذار القديم",
+    barNewMiss: "حد الإنذار الجديد",
+    barOldTh: "حد الأسطول الأصلي",
+    barNewTh: "حد الأسطول المستهدف",
+    shiftFooter: "البحث ذكر أن نسبة التفويت كانت 27.1% عند استخدام حد معاير على الأسطول الأصلي، وانخفضت إلى 10.0% بعد إعادة المعايرة باستخدام 20 عطلًا من الأسطول الجديد. المحاكي هنا يستخدم بيانات مولّدة، لذلك لن يعيد إنتاج أرقام البحث نفسها.",
+    budgetEyebrow: "التجربة التفاعلية 03",
+    budgetH1: "محاكي ميزانية الفحص",
+    budgetP: "لا تستطيع فرق الصيانة فحص كل الماكينات. استكشف العلاقة بين نسبة الماكينات السليمة التي يمكن فحصها ونسبة الماكينات المعطلة التي ننجح في اكتشافها.",
+    budgetTag: "التكلفة مقابل الأمان",
+    budgetCtrlTitle: "قدرة الفحص المتاحة",
+    budgetCtrlHelp: "اختر نسبة الماكينات السليمة التي تستطيع جهة التشغيل تحمّل تكلفة فحصها.",
+    budgetFieldLabel: "نسبة الماكينات السليمة التي سيتم فحصها",
+    budgetBox: "يرتب المحاكي درجات الخطورة للماكينات السليمة والمعرّضة للعطل، ثم يختار حدًا يلتزم بميزانية الفحص التي حددتها.",
+    runBudgetBtn: "طبّق ميزانية الفحص",
+    budgetResTitle: "نتيجة تشغيل تجريبية",
+    budgetResSub: "درجات خطورة مولّدة · الدرجة الأكبر تعني خطورة أعلى",
+    budgetResTag: "ليس ضمانًا إحصائيًا",
+    budgetCatchLabel: "نسبة الماكينات المعطلة التي اكتشفناها",
+    budgetCatchCap: "نسبة الاكتشاف بين الماكينات المعرّضة للعطل",
+    budgetFALabel: "نسبة الماكينات السليمة التي أعطيناها إنذارًا",
+    budgetFACap: "نسبة الماكينات السليمة التي تم فحصها",
+    barCatch: "الأعطال المكتشفة",
+    barFA: "الماكينات السليمة التي تلقت إنذارًا",
+    budgetInsight: "هذا محاكي تجريبي، وليس الشهادة الإحصائية لوضع ميزانية الفحص المذكورة في البحث. يجب مراجعة اشتقاق هذا الجزء وتعريف المتغير m واتجاه درجة الخطورة قبل تقديمه كضمان رسمي.",
+    findingsEyebrow: "ملخص البحث",
+    findingsH1: "النتائج المذكورة في البحث",
+    findingsP: "هذه هي الأرقام الواردة في البحث الذي أرسلته. نفصلها عن التجارب التفاعلية الاصطناعية الموجودة في الأقسام السابقة.",
+    findingsTag: "كما وردت في البحث",
+    p1Eyebrow: "C-MAPSS · نفس الأسطول",
+    p1P: "نسبة التفويت باستخدام GUARD عند α = 10%، وفترة ثقة 95% من 4.9% إلى 11.3%.",
+    p2Eyebrow: "C-MAPSS · تغيّر الأسطول",
+    p2P: "نسبة التفويت عند نقل حد الإنذار من الأسطول الأصلي دون إعادة معايرة.",
+    p3Eyebrow: "C-MAPSS · بعد إعادة المعايرة",
+    p3P: "نسبة التفويت بعد إعادة المعايرة باستخدام 20 عطلًا من الأسطول الجديد (فترة الثقة 95%: من 7.1% إلى 13.3%).",
+    p4Eyebrow: "BACKBLAZE · قاعدة SMART التقليدية",
+    p4P: "نسبة الأعطال التي فوّتتها قاعدة SMART الصناعية خلال فترة الاختبار المذكورة.",
+    p5Eyebrow: "BACKBLAZE · الحارس",
+    p5P: "نسبة التفويت باستخدام GUARD عند α = 10% وفق الجدول 7 في البحث.",
+    p6Eyebrow: "BACKBLAZE · إنذارات الماكينات السليمة",
+    p6P: "نسبة الأقراص السليمة التي أُرسلت إليها إنذارات للوصول إلى اكتشاف نحو 90% من الأعطال، وفق منحنى المفاضلة في البحث.",
+    auditWarning: "ملاحظة تدقيق: الملخص في البحث يذكر نسبة 7.4% لأعطال الأقراص، بينما الجدول 7 والمتن يذكران 7.5%. عرضنا هنا 7.5% لأنها القيمة الواردة في الجدول الرئيسي.",
+    methodTitle: "كيف تعمل الطريقة؟",
+    methodSub: "ثلاث خطوات من درجة النموذج إلى قرار صيانة تمت معايرته",
+    m1Num: "01 / التقييم",
+    m1H: "توقّع حالة الماكينة",
+    m1P: "يستخدم نموذج موجود سجل الحساسات لتقدير العمر التشغيلي المتبقي أو درجة احتمال العطل.",
+    m2Num: "02 / المعايرة",
+    m2H: "التعلّم من الأعطال المسجلة",
+    m2P: "نرتب درجات النموذج للماكينات المعرّضة للعطل، ونختار القيمة ذات الترتيب الذي تحدده α وحجم العينة.",
+    m3Num: "03 / الإنذار",
+    m3H: "اتخاذ قرار يركز على الأمان",
+    m3P: "نطلق إنذارًا عندما يتجاوز التوقع حد الإنذار المعاير وفق اتجاه الدرجة. ونعيد المعايرة إذا تغيّر توزيع بيانات الأسطول.",
+    integrityWarning: "<strong>ملاحظة تتعلق بسلامة البحث:</strong> النص المرسل لا يحتوي على رابط مستودع يعمل أو ملف التسجيل المسبق الفعلي أو ملفات النموذج أو النتائج الخام. لذلك فالأرقام المعروضة هنا هي أرقام منقولة عن البحث وليست نتائج أعدنا إنتاجها بشكل مستقل. المعامل التفاعلية تستخدم بيانات اصطناعية موضّح أنها تجريبية.",
+    findingsFooter: "حالة النموذج الأولي: واجهة أمامية للعرض فقط. لا يتصل حاليًا ببيانات NASA C-MAPSS أو Backblaze، ولا يدرّب نموذج XGBoost، ولم يتم التحقق من صلاحيته لاتخاذ قرارات صيانة حقيقية أو للاستخدام في الأنظمة الحساسة للسلامة.",
+    toastUpdated: "تم التحديث",
+    toastRecalibrated: "تمت إعادة حساب حد الإنذار",
+    toastShiftDone: "اكتملت تجربة تغيّر الأسطول",
+    toastBudgetDone: "تم تطبيق ميزانية الفحص",
+    statusServiceNow: "صيانة الآن",
+    statusKeepRunning: "استمرار التشغيل",
+    cyclesUnit: "دورة",
+    statusFixedRule: "قاعدة ثابتة",
+    statusCalibrated: "تمت المعايرة",
+    statusAlertAll: "إنذار للجميع",
+    directRuleLabel: "الإنذار المباشر · RUL ≤ 30",
+    guardRuleLabel: "الحارس · RUL ≤ tα",
+    captionFinite: "العمر التشغيلي المتبقي المتوقع",
+    captionInfinite: "لا توجد قيمة حد إنذار محدودة",
+    boundFiniteCap: "ضمان احتمالي على مستوى العينة*",
+    boundInfiniteCap: "لا تفويت عند إنذار الجميع؛ لكن كل الماكينات ستتلقى إنذارًا",
+    guardValidMsg: (t, b) => `<strong>تم حساب حد الإنذار.</strong> أطلق إنذارًا عندما يكون العمر المتبقي المتوقع ≤ <b>${t} دورة</b>. وبافتراض قابلية التبادل، فإن الحد الاحتمالي النظري للتفويت هو ${b}.`,
+    guardInvalidMsg: `<strong>بيانات المعايرة غير كافية.</strong> لأن k أكبر من n، لا يمكن حساب حد إنذار محدود يحقق النسبة المطلوبة. الخيار التحفظي هو إطلاق إنذار لكل الماكينات.`,
+    minDataText: (a, minN) => `لتحقيق نسبة تفويت مستهدفة قدرها ${a}، نحتاج إلى ${minN} حالات عطل مسجلة على الأقل لحساب حد إنذار محدود.`,
+    shiftInsightText: (oldT, newT, isFinite, shift) => `حد الإنذار القديم كان <b>${oldT} دورة</b>. حد الإنذار الجديد هو <b>${isFinite ? newT + ' دورة' : 'غير محدود'}</b>. تغيّر توزيع الدرجات بمقدار +${shift} دورة، مع بقاء نموذج التنبؤ كما هو.${!isFinite ? ' عدد حالات العطل أقل من 9، لذلك لا يمكن حساب حد محدود يحقق هدف تفويت 10%. الخيار التحفظي هو إطلاق إنذار لكل الماكينات، وقد يعني ذلك إنذار جميع الماكينات السليمة أيضًا.' : ''}`
+  },
+  en: {
+    appTitle: "GUARD — Predictive Maintenance Safety Lab",
+    brandSub: "System Safety Lab / Version 0.9",
+    workspace: "Workspace",
+    nav_overview: "Overview",
+    nav_guard: "GUARD Calibration",
+    nav_shift: "Fleet Shift Stress Test",
+    nav_budget: "Inspection Budget",
+    nav_findings: "Research Findings",
+    demoNoteStrong: "Demo Environment",
+    demoNoteText: "All experiments use generated synthetic data. No real machinery is connected.",
+    crumbPrefix: "GUARD",
+    sysStatus: "System Online · Simulation Mode",
+    modeTag: "English / العربية",
+    langBtn: "العربية",
+    heroEyebrow: "Predictive Maintenance / Decision Safety",
+    heroH2: "Low prediction error does not mean the <span>alert is safe.</span>",
+    heroP: "An AI model may predict Remaining Useful Life (RUL) accurately on average, yet still fail to warn on machinery that fails before the next inspection. GUARD introduces a calibrated alert threshold specifically designed for at-risk units.",
+    heroBtnGuard: "Open GUARD Lab →",
+    heroBtnShift: "Start Fleet Shift Test",
+    pulseTitle: "GUARD Safety Index",
+    pulseTag: "● Demo Mode",
+    pulseNumber: "90<span>% Target Failure Catch Rate</span>",
+    pulseSub: "Target Miss Rate: 10% · Inspection Window: 30 Days",
+    kpi1Label: "Disks in Study",
+    kpi1Foot: "Backblaze fleet size cited in paper",
+    kpi2Label: "GUARD Miss Rate",
+    kpi2Foot: "Per paper · α = 10% · 30 days",
+    kpi3Label: "SMART Rule Miss Rate",
+    kpi3Foot: "Industry baseline cited in paper",
+    kpi4Label: "Calibration Set",
+    kpi4Val: '20 <span style="font-size:13px;color:#8ba1b7;font-weight:500">failures</span>',
+    kpi4Foot: "Used for recalibration on target fleet",
+    overviewTableTitle: "Machine Monitoring",
+    overviewTableSub: "Illustrative Fleet · Synthetic Readings",
+    simTag: "Simulation",
+    thMachine: "Unit ID",
+    thPredRUL: "Predicted RUL",
+    thActRUL: "Actual RUL*",
+    thDecision: "Decision",
+    overviewFooter: "*Actual RUL is shown for simulation purposes. In practice, ground truth is unknown prior to failure or maintenance inspection.",
+    whyTitle: "Why Calibrated Alerts Matter",
+    whySub: "Two Distinct Decision Errors",
+    coreTag: "Core Concept",
+    barMissedLabel: "Missed Failures",
+    barMissedBadge: "Missed (Safety)",
+    barFALabel: "Unnecessary Inspections",
+    barFABadge: "False Alarm (Cost)",
+    whyInsight: "The safety metric is the fraction of failing units that received no alert (misses). The cost metric is the fraction of healthy units that received false alarms.",
+    whyBtnGuard: "Explore Alert Threshold →",
+    whyBtnFindings: "View Research Findings →",
+    guardEyebrow: "Interactive Lab 01",
+    guardH1: "GUARD Calibration Lab",
+    guardP: "Choose the allowable miss rate and the number of recorded failure cases. The lab calculates the conformal alert threshold and validates it across an independent test pool.",
+    guardTag: "RUL · W = 30 cycles",
+    guardCtrlTitle: "Calibration Settings",
+    guardCtrlHelp: "These settings alter the alert cutoff only, without retraining the underlying prediction model.",
+    alphaFieldLabel: "Target Miss Rate (α)",
+    alphaHelp: "Lower α guarantees fewer missed failures, typically at the expense of higher false alarm rates.",
+    nFieldLabel: "Recorded Failure Run-to-Failures (n)",
+    nScale1: "1 unit",
+    nScale2: "80 units",
+    nHelp: "One independent snapshot per at-risk unit.",
+    kFieldLabel: "Order Statistic Rank (k)",
+    recalibrateBtn: "Recalculate Alert Threshold",
+    guardResTitle: "Calibration Output",
+    guardResSub: "The alert threshold is the k-th order statistic of sorted non-conformity scores.",
+    guardEngineTag: "GUARD Engine",
+    thResLabel: "Computed Alert Threshold",
+    boundResLabel: "Theoretical Miss Bound",
+    thMarkerText: "Alert Threshold",
+    axis0: "0 cycles",
+    axis120: "120+ cycles",
+    statAtRiskLabel: "At-Risk Test Units",
+    statTestMissLabel: "Empirical Miss Rate",
+    statTestFALabel: "Healthy False Alarm Rate",
+    ruleCompareSub: "Decision Rule Benchmark on Generated Test Set",
+    thRule: "Decision Rule",
+    thMissedUnits: "At-Risk Failures Missed",
+    thFAUnits: "Healthy Units Flagged",
+    thNotes: "Notes",
+    guardFooter: "*Guarantee holds under exchangeability between calibration and test distributions. Test results here are generated for illustration and not identical to raw empirical benchmarks.",
+    shiftEyebrow: "Interactive Lab 02",
+    shiftH1: "Fleet Distribution Shift Stress Test",
+    shiftP: "Keep the trained model frozen and deploy it to a target fleet with shifted failure score distributions. Observe uncalibrated degradation, then restore safety via light recalibration on target failures.",
+    shiftTag: "Distribution Shift",
+    shiftCtrlTitle: "Target Fleet Settings",
+    shiftCtrlHelp: "Applies a controlled distributional shift to at-risk machine scores while freezing the prediction model.",
+    shiftNLabel: "Target Fleet Calibration Failures",
+    shiftIntensityLabel: "Shift Severity",
+    shiftLow: "Low",
+    shiftMed: "Medium",
+    shiftHigh: "High",
+    shiftSteps: "Experiment pipeline: Train once on Fleet A → Calibrate on A → Test on Fleet B → Recalibrate threshold using sample from B.",
+    runShiftBtn: "Run Fleet Shift Experiment",
+    shiftResTitle: "Before vs After Recalibration",
+    shiftResSub: "Identical Frozen Model · Different Calibration Sample",
+    simExpTag: "Simulation Run",
+    oldMissLabel: "Miss Rate with Source Threshold",
+    oldMissCap: "Applying Fleet A cutoff to Fleet B",
+    newMissLabel: "Miss Rate with Recalibrated Threshold",
+    newMissCap: "Recalibrated using Fleet B sample",
+    barOldMiss: "Source Cutoff Miss Rate",
+    barNewMiss: "Recalibrated Cutoff Miss Rate",
+    barOldTh: "Fleet A Threshold",
+    barNewTh: "Fleet B Threshold",
+    shiftFooter: "The paper reported a 27.1% miss rate when transferring Fleet A's threshold directly, dropping to 10.0% after recalibrating on 20 failures from the new fleet. The demo uses synthetic data.",
+    budgetEyebrow: "Interactive Lab 03",
+    budgetH1: "Inspection Budget Simulator",
+    budgetP: "Maintenance teams operate under finite inspection bandwidth. Explore the tradeoff between allowed healthy inspection overhead and total failure recall.",
+    budgetTag: "Cost vs Safety",
+    budgetCtrlTitle: "Available Inspection Capacity",
+    budgetCtrlHelp: "Set the fraction of healthy units that operations can afford to inspect per cycle.",
+    budgetFieldLabel: "Max Healthy Units Inspected",
+    budgetBox: "The simulator sorts risk scores for all units, establishing an operating threshold constrained by your inspection budget.",
+    runBudgetBtn: "Apply Inspection Budget",
+    budgetResTitle: "Trial Run Outcome",
+    budgetResSub: "Synthetic risk scores · Higher score indicates greater risk",
+    budgetResTag: "Empirical Tradeoff",
+    budgetCatchLabel: "Failures Caught (Recall)",
+    budgetCatchCap: "Catch rate among at-risk units",
+    budgetFALabel: "Healthy Units Flagged (False Alarms)",
+    budgetFACap: "Inspection budget overhead used",
+    barCatch: "Failures Caught",
+    barFA: "Healthy Units Flagged",
+    budgetInsight: "This is an exploratory simulator illustrating trade-offs, not a formal conformal risk guarantee for inspection budgets.",
+    findingsEyebrow: "Research Summary",
+    findingsH1: "Reported Research Findings",
+    findingsP: "Core empirical benchmarks reported in the paper, distinct from the synthetic in-browser interactive simulations.",
+    findingsTag: "Direct from Paper",
+    p1Eyebrow: "C-MAPSS · In-Domain Fleet",
+    p1P: "GUARD miss rate at α = 10% (95% CI: 4.9% to 11.3%).",
+    p2Eyebrow: "C-MAPSS · Uncalibrated Transfer",
+    p2P: "Miss rate when transferring source fleet threshold without recalibration.",
+    p3Eyebrow: "C-MAPSS · After Recalibration",
+    p3P: "Miss rate restored using n=20 failure trajectories from target fleet (95% CI: 7.1% to 13.3%).",
+    p4Eyebrow: "BACKBLAZE · SMART Baseline Rule",
+    p4P: "Industry SMART threshold rule miss rate over the test window.",
+    p5Eyebrow: "BACKBLAZE · GUARD",
+    p5P: "GUARD miss rate at α = 10% per Table 7 of the paper.",
+    p6Eyebrow: "BACKBLAZE · Healthy False Alarms",
+    p6P: "Healthy drives flagged to achieve ~90% failure recall along empirical Pareto curve.",
+    auditWarning: "Audit note: The abstract quotes 7.4% disk failure miss rate, while Table 7 and main text state 7.5%. We display 7.5% from the primary results table.",
+    methodTitle: "How the Method Works",
+    methodSub: "Three steps from raw model score to calibrated maintenance alert",
+    m1Num: "01 / Scoring",
+    m1H: "Predict Machine State",
+    m1P: "An existing ML model scores run-time telemetry to estimate Remaining Useful Life (RUL) or failure probability.",
+    m2Num: "02 / Calibration",
+    m2H: "Calibrate on Run-to-Failures",
+    m2P: "Sort at-risk failure scores and select the k-th quantile determined by target risk α and sample size n.",
+    m3Num: "03 / Decision",
+    m3H: "Safety-Guaranteed Alerting",
+    m3P: "Trigger alarms when predicted scores breach the threshold, preserving validity via recalibration under distribution shifts.",
+    integrityWarning: "<strong>Research integrity note:</strong> Raw code repositories, preregistration manifests, and raw model weights were not provided. Metrics shown reflect published findings; interactive labs use synthetic illustrative data.",
+    findingsFooter: "Prototype Status: Client-side interactive evaluation frontend only. Not connected to raw NASA C-MAPSS or Backblaze feeds, and not approved for safety-critical deployment.",
+    toastUpdated: "Updated",
+    toastRecalibrated: "Alert threshold recalculated",
+    toastShiftDone: "Fleet shift experiment complete",
+    toastBudgetDone: "Inspection budget applied",
+    statusServiceNow: "Service Now",
+    statusKeepRunning: "Keep Running",
+    cyclesUnit: "cycles",
+    statusFixedRule: "Fixed Rule",
+    statusCalibrated: "Calibrated",
+    statusAlertAll: "Alert All",
+    directRuleLabel: "Direct Cutoff · RUL ≤ 30",
+    guardRuleLabel: "GUARD · RUL ≤ tα",
+    captionFinite: "Predicted Remaining Useful Life",
+    captionInfinite: "No finite cutoff possible",
+    boundFiniteCap: "Finite-sample conformal bound*",
+    boundInfiniteCap: "Zero miss rate by alerting all; 100% false alarms",
+    guardValidMsg: (t, b) => `<strong>Threshold Computed.</strong> Issue maintenance alert when predicted RUL ≤ <b>${t} cycles</b>. Under exchangeability, marginal miss bound is ≤ ${b}.`,
+    guardInvalidMsg: `<strong>Insufficient Calibration Data.</strong> Since k > n, no finite cutoff satisfies the target rate. The conservative fallback alerts all units.`,
+    minDataText: (a, minN) => `To achieve a target miss rate of ${a}, at least ${minN} recorded failure runs are required to compute a finite bound.`,
+    shiftInsightText: (oldT, newT, isFinite, shift) => `Source fleet cutoff was <b>${oldT} cycles</b>. Recalibrated cutoff is <b>${isFinite ? newT + ' cycles' : 'Unbounded'}</b>. Score distribution shifted by +${shift} cycles with prediction model kept frozen.${!isFinite ? ' Fewer than 9 failure cases available; cannot form a finite cutoff for 10% miss rate without alerting all units.' : ''}`
+  }
+};
+
+let currentLang = 'ar';
+let alpha = .10, n = 20, currentPage = 'overview';
+let shiftN = 20, shift = 30;
+
+const calibrationPool = Array.from({length:120},()=>+(8+rand()*49).toFixed(1));
+const atRiskTest = Array.from({length:200},()=>+(8+rand()*49).toFixed(1));
+const healthyTest = Array.from({length:1000},()=>+(39+rand()*100).toFixed(1));
+const budgetAtRisk = Array.from({length:1000},(_,i)=>.25+(((i*73)%997)/997)*.7);
+const budgetHealthy = Array.from({length:4000},(_,i)=>(((i*137+41)%4001)/4001)*.72);
+
+function getOrder(n, a){return Math.ceil((n+1)*(1-a))}
+function guardStats(threshold){
+  const misses = atRiskTest.filter(s=>s>threshold).length;
+  const fa = healthyTest.filter(s=>s<=threshold).length;
+  return {misses, fa, missRate:misses/atRiskTest.length, faRate:fa/healthyTest.length};
+}
+
+function t(key){
+  return i18n[currentLang][key] || key;
+}
+
+function updatePageLanguage(){
+  document.documentElement.lang = currentLang;
+  document.documentElement.dir = (currentLang === 'ar') ? 'rtl' : 'ltr';
+  $('docTitle').textContent = t('appTitle');
+  $('langToggleText').textContent = t('langBtn');
+  $('crumbPrefix').textContent = t('crumbPrefix');
+  
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.dataset.i18n;
+    if(i18n[currentLang][key] !== undefined){
+      el.textContent = i18n[currentLang][key];
+    }
+  });
+
+  document.querySelectorAll('[data-i18n-html]').forEach(el => {
+    const key = el.dataset.i18nHtml;
+    if(i18n[currentLang][key] !== undefined){
+      el.innerHTML = i18n[currentLang][key];
+    }
+  });
+
+  $('thresholdMarker').setAttribute('data-label', t('thMarkerText'));
+  $('axis0Label').textContent = (currentLang === 'ar') ? '0 دورة' : '0 cycles';
+  $('axis120Label').textContent = (currentLang === 'ar') ? '120+ دورة' : '120+ cycles';
+
+  document.querySelectorAll('[data-shift-level]').forEach(btn => {
+    const lvl = btn.dataset.shiftLevel;
+    if(lvl === 'low') btn.textContent = t('shiftLow');
+    if(lvl === 'med') btn.textContent = t('shiftMed');
+    if(lvl === 'high') btn.textContent = t('shiftHigh');
+  });
+
+  updateShiftIntensityLabel();
+  updateCrumb();
+  drawOverview();
+  drawGuard();
+  shiftData();
+  runBudget();
+}
+
+function updateCrumb(){
+  const pageMap = {
+    overview: t('nav_overview'),
+    guard: t('nav_guard'),
+    shift: t('nav_shift'),
+    budget: t('nav_budget'),
+    findings: t('nav_findings')
+  };
+  $('crumbName').textContent = pageMap[currentPage] || currentPage;
+}
+
+function updateShiftIntensityLabel(){
+  if(shift === 10) $('shiftIntensityLabelText').textContent = t('shiftLow');
+  else if(shift === 20) $('shiftIntensityLabelText').textContent = t('shiftMed');
+  else $('shiftIntensityLabelText').textContent = t('shiftHigh');
+}
+
+function setPage(name){
+  currentPage = name;
+  document.querySelectorAll('.page').forEach(p => p.classList.toggle('active', p.id === `page-${name}`));
+  document.querySelectorAll('.nav button').forEach(b => b.classList.toggle('active', b.dataset.page === name));
+  updateCrumb();
+  $('sidebar').classList.remove('open');
+  window.scrollTo({top:0, behavior:'smooth'});
+}
+
+function toast(msg){
+  $('toast').textContent = msg;
+  $('toast').classList.add('show');
+  setTimeout(()=>$('toast').classList.remove('show'), 1800);
+}
+
+function drawOverview(){
+  const rows = [
+    ['ENG-014', 12, 8],
+    ['ENG-027', 24, 41],
+    ['ENG-031', 38, 62],
+    ['ENG-042', 17, 12],
+    ['ENG-056', 64, 71],
+    ['ENG-063', 29, 34],
+    ['ENG-078', 9, 4],
+    ['ENG-091', 47, 55]
+  ];
+  const threshold = 30;
+  const unitStr = t('cyclesUnit');
+  $('overviewTable').innerHTML = rows.map(r => {
+    const isAlert = r[1] <= threshold;
+    const statusText = isAlert ? t('statusServiceNow') : t('statusKeepRunning');
+    return `<tr>
+      <td><div class="machine"><span class="machine-icon">⚙</span>${r[0]}</div></td>
+      <td>${r[1]} ${unitStr}</td>
+      <td>${r[2]} ${unitStr}</td>
+      <td><span class="status ${isAlert ? 'alert' : 'safe'}">${statusText}</span></td>
+    </tr>`;
+  }).join('');
+}
+
+function drawGuard(){
+  const k = getOrder(n, alpha), valid = k <= n;
+  const cal = sorted(calibrationPool.slice(0, n));
+  const threshold = valid ? cal[k-1] : Infinity;
+  const st = guardStats(threshold);
+  const unitStr = t('cyclesUnit');
+  const minRequired = Math.ceil(1/alpha) - 1;
+
+  $('alphaLabel').textContent = pct(alpha);
+  $('nLabel').textContent = n;
+  $('kLabel').textContent = (k > $('nRange').max) ? `${k}` : k;
+  $('minDataText').textContent = i18n[currentLang].minDataText(pct(alpha), minRequired);
+
+  $('thresholdValue').textContent = valid ? `${threshold.toFixed(1)} ${unitStr}` : (currentLang === 'ar' ? 'إنذار لكل الماكينات' : 'Alert All Units');
+  $('thresholdCaption').textContent = valid ? t('captionFinite') : t('captionInfinite');
+
+  const boundPct = valid ? `${((n+1-k)/(n+1)*100).toFixed(1)}%` : '0%*';
+  $('boundValue').textContent = boundPct;
+  $('boundCaption').textContent = valid ? t('boundFiniteCap') : t('boundInfiniteCap');
+
+  $('atRiskCount').textContent = atRiskTest.length;
+  $('testMiss').textContent = pct(st.missRate);
+  $('testFA').textContent = pct(st.faRate);
+  $('testMiss').className = (st.missRate <= alpha + .05) ? 'green' : 'red';
+  $('testFA').className = 'amber';
+
+  $('guardMessage').className = valid ? 'success-box' : 'warning-box';
+  $('guardMessage').innerHTML = valid 
+    ? i18n[currentLang].guardValidMsg(threshold.toFixed(1), pct((n+1-k)/(n+1)))
+    : i18n[currentLang].guardInvalidMsg;
+
+  const pos = valid ? Math.min(98, threshold/120*100) : 100;
+  $('thresholdMarker').style.left = pos + '%';
+  $('thresholdMarker').style.display = valid ? 'block' : 'none';
+
+  $('calibrationDots').innerHTML = cal.map(v => 
+    `<span class="score-dot ${v<=threshold?'hit':''}" title="${v.toFixed(1)} ${unitStr}"></span>`
+  ).join('');
+
+  const point = guardStats(30);
+  const guardLabel = `${st.misses} / ${atRiskTest.length}`;
+  const validStatusBadge = valid 
+    ? `<span class="status safe">${t('statusCalibrated')}</span>` 
+    : `<span class="status watch">${t('statusAlertAll')}</span>`;
+
+  $('ruleCompare').innerHTML = `<tr>
+    <td><b>${t('directRuleLabel')}</b></td>
+    <td>${point.misses} / ${atRiskTest.length} (${pct(point.missRate)})</td>
+    <td>${point.fa} / ${healthyTest.length} (${pct(point.faRate)})</td>
+    <td><span class="status watch">${t('statusFixedRule')}</span></td>
+  </tr>
+  <tr>
+    <td><b>${t('guardRuleLabel')}</b></td>
+    <td>${guardLabel} (${pct(st.missRate)})</td>
+    <td>${st.fa} / ${healthyTest.length} (${pct(st.faRate)})</td>
+    <td>${validStatusBadge}</td>
+  </tr>`;
+
+  document.querySelectorAll('[data-alpha]').forEach(b => 
+    b.classList.toggle('selected', Number(b.dataset.alpha) === alpha)
+  );
+}
+
+function shiftData(){
+  const sourceCal = Array.from({length:80}, (_,i)=>+(10+((i*37)%199)/10).toFixed(1)).sort((a,b)=>a-b);
+  const sourceK = getOrder(20, .1);
+  const oldT = sourceCal[sourceK-1];
+  const targetCal = Array.from({length:shiftN}, (_,i)=>+(10+shift+((i*29+7)%197)/10).toFixed(1)).sort((a,b)=>a-b);
+  const targetK = getOrder(shiftN, .1);
+  const newT = (targetK <= shiftN) ? targetCal[targetK-1] : Infinity;
+  const test = Array.from({length:500}, (_,i)=>+(10+shift+((i*43+13)%200)/10).toFixed(1));
+  const oldMiss = test.filter(x => x > oldT).length / test.length;
+  const newMiss = Number.isFinite(newT) ? (test.filter(x => x > newT).length / test.length) : 0;
+
+  $('oldMiss').textContent = pct(oldMiss);
+  $('newMiss').textContent = pct(newMiss);
+  $('oldMissText').textContent = pct(oldMiss);
+  $('newMissText').textContent = pct(newMiss);
+  $('oldMissBar').style.width = Math.min(100, oldMiss*100) + '%';
+  $('newMissBar').style.width = Math.min(100, newMiss*100) + '%';
+  $('oldThresholdText').textContent = oldT.toFixed(1);
+  $('newThresholdText').textContent = Number.isFinite(newT) ? newT.toFixed(1) : (currentLang === 'ar' ? 'إنذار للجميع' : 'Alert All');
+  $('oldThresholdBar').style.width = Math.min(100, oldT/100*100) + '%';
+  $('newThresholdBar').style.width = Number.isFinite(newT) ? Math.min(100, newT/100*100) + '%' : '100%';
+
+  $('shiftInsight').innerHTML = i18n[currentLang].shiftInsightText(oldT.toFixed(1), Number.isFinite(newT) ? newT.toFixed(1) : '', Number.isFinite(newT), shift);
+}
+
+function runBudget(){
+  const b = Number($('budgetRange').value) / 100;
+  const healthySorted = sorted(budgetHealthy);
+  const cutoff = healthySorted[Math.min(healthySorted.length - 1, Math.ceil((1 - b)*(healthySorted.length - 1)))];
+  const caught = budgetAtRisk.filter(x => x >= cutoff).length / budgetAtRisk.length;
+  const flagged = budgetHealthy.filter(x => x >= cutoff).length / budgetHealthy.length;
+
+  $('budgetLabel').textContent = pct(b);
+  $('budgetCatch').textContent = pct(caught);
+  $('budgetFA').textContent = pct(flagged);
+  $('catchText').textContent = pct(caught);
+  $('faText').textContent = pct(flagged);
+  $('catchBar').style.width = (caught * 100) + '%';
+  $('faBar').style.width = (flagged * 100) + '%';
+}
+
+// Event Listeners
+document.querySelectorAll('[data-page]').forEach(b => b.addEventListener('click', () => setPage(b.dataset.page)));
+document.querySelectorAll('[data-goto]').forEach(b => b.addEventListener('click', () => setPage(b.dataset.goto)));
+$('menuBtn').addEventListener('click', () => $('sidebar').classList.toggle('open'));
+
+document.querySelectorAll('[data-alpha]').forEach(b => b.addEventListener('click', () => {
+  alpha = Number(b.dataset.alpha);
+  drawGuard();
+}));
+$('nRange').addEventListener('input', e => {
+  n = Number(e.target.value);
+  drawGuard();
+});
+$('recalibrateBtn').addEventListener('click', () => {
+  drawGuard();
+  toast(t('toastRecalibrated'));
+});
+
+$('shiftN').addEventListener('input', e => {
+  shiftN = Number(e.target.value);
+  $('shiftNLabel').textContent = shiftN;
+});
+document.querySelectorAll('[data-shift]').forEach(b => b.addEventListener('click', () => {
+  shift = Number(b.dataset.shift);
+  document.querySelectorAll('[data-shift]').forEach(x => x.classList.toggle('selected', x === b));
+  updateShiftIntensityLabel();
+}));
+$('runShift').addEventListener('click', () => {
+  shiftData();
+  toast(t('toastShiftDone'));
+});
+
+$('budgetRange').addEventListener('input', e => {
+  $('budgetLabel').textContent = e.target.value + '%';
+});
+$('runBudget').addEventListener('click', () => {
+  runBudget();
+  toast(t('toastBudgetDone'));
+});
+
+// Translation Toggle
+$('langToggleBtn').addEventListener('click', () => {
+  currentLang = (currentLang === 'ar') ? 'en' : 'ar';
+  try { localStorage.setItem('guard_lang', currentLang); } catch(e){}
+  updatePageLanguage();
+  toast(currentLang === 'en' ? 'Switched to English' : 'تم التبديل إلى العربية');
+});
+
+// Initialize
+try {
+  const savedLang = localStorage.getItem('guard_lang');
+  if(savedLang === 'en' || savedLang === 'ar') currentLang = savedLang;
+} catch(e){}
+
+updatePageLanguage();
+</script>
+</body>
+</html>
